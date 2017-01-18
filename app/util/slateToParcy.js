@@ -1,7 +1,7 @@
 import _ from 'lodash'
 
 const mapTags = (prefix, text) => (mark) => {
-  return { start: prefix.length, len: text.length, mark: mark.type.toUpperCase() }
+  return { start: prefix.length, len: text.length, tag: mark.type.toUpperCase() }
 }
 
 const reduceRange = (accumulator, range) => (

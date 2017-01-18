@@ -1,22 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Editor, Raw } from 'slate'
+import { slateToParcy } from '../util/slateToParcy'
 
 const renderMark = (mark) => (props) => (<mark data-entity={mark}>{props.children}</mark>)
 
-const reduceNode = (node) => {
-  return node.ranges.reduce((acc, range) => acc + range.text, "")
-}
-
-const toParcy = (doc) => {
-  return doc.nodes.reduce((acc, node) => acc.concat(node), [])
+const toParcy = (editor) => {
+  return slateToParcy(Raw.serialize(editor).document)
 }
 
 const mapStateToProps = ({editor}) => (
   {
     editorState: editor,
-    raw: Raw.serialize(editor),
-    // raw: toParcy(Raw.serialize(editor)),
+    raw: toParcy(editor),
     schema: {
       marks: {
         org: renderMark('org'),
