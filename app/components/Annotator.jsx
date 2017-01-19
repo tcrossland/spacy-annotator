@@ -38,17 +38,15 @@ const mapDispatchToProps = (dispatch) => (
   }
 )
 
+const TagButton = (k, v) => (
+  <button key={k} type="button" className="btn btn-default" onClick={v}>{k.toUpperCase()}</button>
+)
 
 const AnnotatorPane = ({editorState, schema, onChange, onMark, raw}) => (
   <div>
     <h1>Annotator</h1>
     <div className="btn-group btn-group-sm">
-      <button type="button" className="btn btn-default" onClick={onMark('person')}>PERSON</button>
-      <button type="button" className="btn btn-default" onClick={onMark('norp')}>NORP</button>
-      <button type="button" className="btn btn-default" onClick={onMark('org')}>ORG</button>
-      <button type="button" className="btn btn-default" onClick={onMark('gpe')}>GPE</button>
-      <button type="button" className="btn btn-default" onClick={onMark('loc')}>LOC</button>
-      <button type="button" className="btn btn-default" onClick={onMark('date')}>DATE</button>
+      {Object.keys(schema.marks).map(k => TagButton(k, onMark(k)))}
     </div>
     <div className="panel panel-default">
       <div className="panel-body">
