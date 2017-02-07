@@ -37,10 +37,10 @@ const mapDispatchToProps = (dispatch) => (
       dispatch({type: 'MARK', mark: type})
     },
     onTrain: (raw) => (e) => {
-      dispatch({ type: REQUEST_TRAIN, model: 'es', sentences: raw })
+      dispatch({ type: REQUEST_TRAIN, model: 'es', paragraphs: raw })
     },
     onDetect: (raw) => (e) => {
-      dispatch({ type: REQUEST_ENTITIES, model: 'es', sentences: raw })
+      dispatch({ type: REQUEST_ENTITIES, model: 'es', paragraphs: raw })
     }
   }
 )

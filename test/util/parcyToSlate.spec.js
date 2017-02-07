@@ -3,7 +3,7 @@ import { parcyToSlate } from '../../app/util/parcyToSlate'
 describe('the parcy to slate transformation', () => {
   it('should extract the editor state from the parcy response', () => {
     const response = {
-      sentences: [{
+      paragraphs: [{
         tags: [
           { start: 0, end: 20, type: "ORG" },
           { start: 33, end: 37, type: "ORG" },
@@ -20,7 +20,7 @@ describe('the parcy to slate transformation', () => {
         text: "Banco Bilbao Vizcaya Argentaria (BBVA) es una entidad bancaria española, presidida por Francisco González Rodríguez. Es uno de los mayores bancos de España, siendo la primera entidad financiera de México, segunda en España, Turquía y Perú, tercera en Venezuela y cuarta en Colombia."
       }]
     }
-    const state = parcyToSlate(response.sentences)
+    const state = parcyToSlate(response.paragraphs)
     expect(state).toBeTruthy()
     expect(state.nodes).toBeTruthy()
     expect(state.nodes.length).toEqual(1)

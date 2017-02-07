@@ -10,23 +10,23 @@ import {
 
 describe('training saga', () => {
   const model = 'es'
-  const sentences = [
+  const paragraphs = [
     { test: "Hello", tags: [] }
   ]
-  const req = { model, sentences }
+  const req = { model, paragraphs }
   const opts = {
     method: "POST",
     body: JSON.stringify(req)
   }
 
   it('should call training endpoint and create a put effect for a successful response', () => {
-    const json = sentences
+    const json = paragraphs
     expect(() => {
       testSaga(postTrainModel, req)
       .next()
       .call(apiJson, `http://127.0.0.1:8000/train`, opts)
       .next({ json })
-      .put({ type: RECEIVE_TRAIN, sentences: json })
+      .put({ type: RECEIVE_TRAIN, paragraphs: json })
       .next()
       .isDone()
     }).not.toThrow()

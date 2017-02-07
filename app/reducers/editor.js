@@ -585,7 +585,7 @@ export const editor = (state = initialState, action) => {
     case 'MARK':
       return state.transform().toggleMark(action.mark).apply()
     case 'RECEIVE_ENTITIES':
-      const nextState = parcyToSlate(action.sentences)
+      const nextState = parcyToSlate(action.paragraphs)
       return Raw.deserialize(nextState, { terse: true })
     default:
       return state
