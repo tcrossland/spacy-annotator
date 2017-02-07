@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Editor, Raw } from 'slate'
 import { slateToParcy } from '../util/slateToParcy'
+import { REQUEST_TRAIN, REQUEST_ENTITIES } from '../constants'
 
 const renderMark = (mark) => (props) => (<mark data-entity={mark}>{props.children}</mark>)
 
@@ -34,6 +35,12 @@ const mapDispatchToProps = (dispatch) => (
     onMark: (type) => (e) => {
       // e.preventDefault()
       dispatch({type: 'MARK', mark: type})
+    },
+    onTrain: (raw) => (e) => {
+      dispatch({ type: REQUEST_TRAIN, model: 'es', sentences: raw })
+    },
+    onDetect: (raw) => (e) => {
+      dispatch({ type: REQUEST_ENTITIES, model: 'es', sentences: raw })
     }
   }
 )
@@ -42,7 +49,7 @@ const TagButton = (k, v) => (
   <button key={k} type="button" className="btn btn-default" onClick={v}>{k.toUpperCase()}</button>
 )
 
-const AnnotatorPane = ({editorState, schema, onChange, onMark, raw}) => (
+const AnnotatorPane = ({editorState, schema, onChange, onMark, onTrain, onDetect, raw}) => (
   <div>
     <h1>Annotator</h1>
     <div className="btn-group btn-group-sm">
@@ -53,6 +60,8 @@ const AnnotatorPane = ({editorState, schema, onChange, onMark, raw}) => (
         <Editor state={editorState} schema={schema} onChange={onChange}/>
       </div>
     </div>
+    <a className="btn btn-primary" onClick={onDetect(raw)}>Detect</a>
+    <a className="btn btn-default" onClick={onTrain(raw)}>Train</a>
     <pre className="small">
       <code>
         {JSON.stringify(raw, ' ', 2)}

@@ -1,7 +1,6 @@
-import _ from 'lodash'
-import { editor } from '../app/reducers'
-import { slateToParcy } from '../app/util/slateToParcy'
-import { Editor, Raw } from 'slate'
+import { editor } from '../../app/reducers'
+import { slateToParcy } from '../../app/util/slateToParcy'
+import { Raw } from 'slate'
 
 const initialState = editor(undefined, {})
 
@@ -15,7 +14,7 @@ describe('the editor\'s initial state', () => {
   })
 })
 
-describe('the parcy transformation', () => {
+describe('the slate to parcy transformation', () => {
   it('should extract text and tags from the raw slate document', () => {
     const raw = Raw.serialize(initialState)
     expect(raw.document).toBeTruthy()

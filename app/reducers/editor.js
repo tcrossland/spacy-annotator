@@ -1,4 +1,5 @@
-import { Raw } from 'slate'
+import { Raw, Plain, Text, Document, State, Selection } from 'slate'
+import { parcyToSlate } from '../util/parcyToSlate'
 
 const initialState = Raw.deserialize({
   "nodes": [
@@ -566,12 +567,26 @@ const initialState = Raw.deserialize({
       ]
 }, { terse: true })
 
+const applyTag = (node, tag, idx) => {
+  node
+    .addMark(tag.start, tag.len, {type: tag.type})
+}
+
+const sentenceToNode = ({ text, tags }) => {
+  const node = Text.createFromString(text)
+  tags.forEach(t => node.addMark(t.start, t.len, {type: t.type}))
+  return node
+}
+
 export const editor = (state = initialState, action) => {
   switch (action.type) {
     case 'EDITOR_STATE':
       return action.state
     case 'MARK':
       return state.transform().toggleMark(action.mark).apply()
+    case 'RECEIVE_ENTITIES':
+      const nextState = parcyToSlate(action.sentences)
+      return Raw.deserialize(nextState, { terse: true })
     default:
       return state
   }
