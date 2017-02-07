@@ -62,11 +62,6 @@ const AnnotatorPane = ({editorState, schema, onChange, onMark, onTrain, onDetect
     </div>
     <a className="btn btn-primary" onClick={onDetect(raw)}>Detect</a>
     <a className="btn btn-default" onClick={onTrain(raw)}>Train</a>
-    <pre className="small">
-      <code>
-        {JSON.stringify(raw, ' ', 2)}
-      </code>
-    </pre>
   </div>
 )
 
