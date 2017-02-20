@@ -12,6 +12,9 @@ exports.config = {
     enabled: true,
     styles: {
       bootstrap: ['dist/css/bootstrap.css']
+    },
+    globals: {
+      process: 'process'
     }
   }
 };
