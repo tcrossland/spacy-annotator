@@ -15,6 +15,9 @@ exports.config = {
     },
     globals: {
       process: 'process'
+    },
+    aliases: {
+      'redux-saga/effects': 'redux-saga/lib/effects'
     }
   }
 };

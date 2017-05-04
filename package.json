@@ -21,8 +21,8 @@
     "react-router": "^3.0.1",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
-    "redux-saga": "0.14.4",
-    "slate": "^0.16.11"
+    "redux-saga": "^0.14.8",
+    "slate": "^0.19.22"
   },
   "devDependencies": {
     "babel-brunch": "^6.0.6",
