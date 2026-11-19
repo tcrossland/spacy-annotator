@@ -4,7 +4,7 @@ A web application for annotating text corpora with [spaCy](https://spacy.io) nam
 
 Select text in the editor and tag it with one of the entity types; tagged text is highlighted and labelled with its type. **Detect** posts the paragraphs to an `/ent` endpoint and loads the entities it returns into the editor, and **Train** posts the paragraphs and their tags to a `/train` endpoint. The app does not run spaCy itself: both endpoints are expected on a separate server at `http://127.0.0.1:8000`, which is not included in this repository.
 
-<!-- TODO: add a screenshot of the annotator here -->
+![The annotator with its sample Spanish text, entities highlighted and labelled by type](docs/screenshot.png)
 
 ## Getting started
 
