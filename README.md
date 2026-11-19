@@ -4,7 +4,7 @@
 
 A web application for annotating text corpora with [spaCy](https://spacy.io) named entity annotations, the labelled spans of text a model learns to find: ORG (organisations), PERSON, NORP (nationalities and religious or political groups), GPE (countries, cities and states), LOC (other locations) and DATE.
 
-It was a 2017 prototype of a loop in one page: tag entities by hand, send them to a server to train a model, and ask the server to detect entities again.
+It was a 2017 prototype for exploring how a person and a model work together on the same text: tag entities by hand, send them to a server to train a model, and ask the server to detect entities again.
 
 Select text in the editor and tag it with one of the entity types; tagged text is highlighted and labelled with its type. **Detect** posts the paragraphs to an `/ent` endpoint and loads the entities it returns into the editor, and **Train** posts the paragraphs and their tags to a `/train` endpoint. The app does not run spaCy itself: both endpoints are expected on a separate server at `http://127.0.0.1:8000`, which is not included in this repository.
 
