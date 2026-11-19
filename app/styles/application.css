@@ -1,3 +1,10 @@
+/*
+ * Compiled from displaCy ENT (assets/css/displacy-ent.sass)
+ * https://github.com/explosion/displacy-ent
+ * Copyright (C) 2016 ExplosionAI UG (haftungsbeschränkt)
+ * Released under the MIT License. See THIRD-PARTY-NOTICES.md.
+ */
+
 .entities {
      line-height: 2;
 }

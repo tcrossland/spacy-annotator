@@ -40,6 +40,6 @@ It is a prototype written between January and May 2017, when spaCy 1.x was curre
 
 This project came a few months before [Prodigy](https://prodi.gy), but it is a separate and much smaller thing. To annotate data for spaCy today, look at Prodigy or another maintained tool.
 
-The entity highlight styles in `app/styles/application.css` come from [displaCy ENT](https://github.com/explosion/displacy-ent), Explosion's entity visualiser (MIT License, Copyright (C) 2016 ExplosionAI UG (haftungsbeschränkt)).
+The entity highlight styles in `app/styles/application.css` come from [displaCy ENT](https://github.com/explosion/displacy-ent), Explosion's entity visualiser, and the font files in `app/assets/fonts/` come from [Bootstrap](https://github.com/twbs/bootstrap). Both are under the MIT License; their notices are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 In November 2026 the app still built and its tests passed on Node 24. Its dependencies date from 2017 and have known vulnerabilities, so run it locally only.
