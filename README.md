@@ -6,7 +6,7 @@ A web application for annotating text corpora with [spaCy](https://spacy.io) nam
 
 It was a 2017 prototype for exploring how a person and a model work together on the same text: tag entities by hand, send them to a server to train a model, and ask the server to detect entities again.
 
-Select text in the editor and tag it with one of the entity types; tagged text is highlighted and labelled with its type. **Detect** posts the paragraphs to an `/ent` endpoint and loads the entities it returns into the editor, and **Train** posts the paragraphs and their tags to a `/train` endpoint. The app does not run spaCy itself: both endpoints are expected on a separate server at `http://127.0.0.1:8000`, which is not included in this repository.
+Select text in the editor and tag it with one of the entity types; tagged text is highlighted and labelled with its type. **Detect** posts the paragraphs to an `/ent` endpoint and loads the entities it returns into the editor, and **Train** posts the paragraphs and their tags to a `/train` endpoint. The app does not run spaCy itself: both endpoints are expected on a separate server at `http://127.0.0.1:8000`. That server is the trainable displaCy ENT server I contributed to Explosion's [spacy-dev-resources](https://github.com/explosion/spacy-dev-resources/tree/32fe013ec455a0949b347231ef9a9b006e3f8aa3/training/displacy_ent) in January and February 2017 ([#5](https://github.com/explosion/spacy-dev-resources/pull/5), [#8](https://github.com/explosion/spacy-dev-resources/pull/8)). It was built for spaCy 1.x, and has since been removed from that repository, which is archived, so the link is to the version this app was built against.
 
 ![The annotator with its sample Spanish text, entities highlighted and labelled by type](docs/screenshot.png)
 
@@ -34,7 +34,7 @@ Select text in the editor and tag it with one of the entity types; tagged text i
 
 This project is no longer maintained, and the repository is archived.
 
-I wrote it between January and May 2017, when spaCy 1.x was current, and it did not get past the prototype stage: the entity types, the model name (`es`) and the server address are fixed in the code, the sample text is built in, and the server was never part of this repository.
+I wrote it between January and May 2017, when spaCy 1.x was current, and it did not get past the prototype stage: the entity types, the model name (`es`) and the server address are fixed in the code, the sample text is built in, and the server lived in a separate repository.
 
 I stopped work on it in May 2017 because of other commitments. My interest was in how a person and a model work together on the same text; the model's accuracy came second. If I built it again, I would start with a stub server standing in for the model, so that the interaction could be tried on its own, and I would design for throughput: a queue of small decisions made from the keyboard, in place of one document tagged with the mouse. The same design question is open again with language models: how a person reviews, corrects and steers what a model produces.
 
