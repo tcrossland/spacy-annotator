@@ -2,7 +2,9 @@
 
 > This project is no longer maintained and the repository is archived. See [Status and history](#status-and-history).
 
-A web application for annotating text corpora with [spaCy](https://spacy.io) named entity annotations: ORG, PERSON, NORP, GPE, LOC and DATE.
+A web application for annotating text corpora with [spaCy](https://spacy.io) named entity annotations, the labelled spans of text a model learns to find: ORG (organisations), PERSON, NORP (nationalities and religious or political groups), GPE (countries, cities and states), LOC (other locations) and DATE.
+
+It was a 2017 prototype of a loop in one page: tag entities by hand, send them to a server to train a model, and ask the server to detect entities again.
 
 Select text in the editor and tag it with one of the entity types; tagged text is highlighted and labelled with its type. **Detect** posts the paragraphs to an `/ent` endpoint and loads the entities it returns into the editor, and **Train** posts the paragraphs and their tags to a `/train` endpoint. The app does not run spaCy itself: both endpoints are expected on a separate server at `http://127.0.0.1:8000`, which is not included in this repository.
 
@@ -32,10 +34,12 @@ Select text in the editor and tag it with one of the entity types; tagged text i
 
 This project is no longer maintained, and the repository is archived.
 
-It is a prototype written between January and May 2017, when spaCy 1.x was current. The idea was a loop in one page: tag entities by hand, send them to a server to train a model, and ask the server to detect entities again. It did not get past the prototype: the entity types, the model name (`es`) and the server address are fixed in the code, the sample text is built in, and the server was never part of this repository.
+I wrote it between January and May 2017, when spaCy 1.x was current, and it did not get past the prototype stage: the entity types, the model name (`es`) and the server address are fixed in the code, the sample text is built in, and the server was never part of this repository.
+
+I stopped work on it in May 2017 because of other commitments. My interest was in how a person and a model work together on the same text; the model's accuracy came second. If I built it again, I would start with a stub server standing in for the model, so that the interaction could be tried on its own, and I would design for throughput: a queue of small decisions made from the keyboard, in place of one document tagged with the mouse. The same design question is open again with language models: how a person reviews, corrects and steers what a model produces.
 
 This prototype predates [Prodigy](https://prodi.gy), the annotation tool that Explosion, the makers of spaCy, [announced in August 2017](https://explosion.ai/blog/prodigy-annotation-tool-active-learning). Prodigy is a separate project and does far more. To annotate data for spaCy today, look at Prodigy or another maintained tool.
 
 The entity highlight styles in `app/styles/application.css` come from [displaCy ENT](https://github.com/explosion/displacy-ent), Explosion's entity visualiser, and the font files in `app/assets/fonts/` come from [Bootstrap](https://github.com/twbs/bootstrap). Both are under the MIT License; their notices are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-In November 2026 the app still built and its tests passed on Node 24. Its dependencies date from 2017 and have known vulnerabilities, so run it locally only.
+In November 2026 the app still built and its tests passed on Node 24; the commands and results are recorded in [pull request 3](https://github.com/tcrossland/spacy-annotator/pull/3). Its dependencies date from 2017 and have known vulnerabilities, so run it locally only.
