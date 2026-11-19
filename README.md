@@ -1,6 +1,10 @@
 # spaCy Annotator
 
-A web application for annotating text corpora with NLP annotations.
+A web application for annotating text corpora with [spaCy](https://spacy.io) named entity annotations: ORG, PERSON, NORP, GPE, LOC and DATE.
+
+Select text in the editor and tag it with one of the entity types; tagged text is highlighted and labelled with its type. **Detect** posts the paragraphs to an `/ent` endpoint and loads the entities it returns into the editor, and **Train** posts the paragraphs and their tags to a `/train` endpoint. The app does not run spaCy itself: both endpoints are expected on a separate server at `http://127.0.0.1:8000`, which is not included in this repository.
+
+<!-- TODO: add a screenshot of the annotator here -->
 
 ## Getting started
 
@@ -13,8 +17,12 @@ A web application for annotating text corpora with NLP annotations.
     * `brunch build --production` — builds minified project for production
 * Test:
     * `npm test` — executes test suites
-    * `npm run test:watch` - executes test suites continuously
-* Learn:
-    * `public/` dir is fully auto-generated and served by HTTP server. Write your code in `app/` dir.
-    * Place static files you want to be copied from `app/assets/` to `public/`.
-    * [Brunch site](http://brunch.io), [Getting started guide](https://github.com/brunch/brunch-guide#readme)
+
+## How it's built
+
+* React components, with Redux and react-redux for state. The single route is set up with react-router and react-router-redux.
+* The editor is Slate. Each entity type is a Slate mark, and `app/util/` converts between Slate's document format and the paragraphs sent to and received from the server.
+* redux-saga runs the Detect and Train requests, which are made with `fetch` (isomorphic-fetch).
+* Bootstrap provides the base styles; the entity highlight styles are in `app/styles/application.css`.
+* Brunch builds `app/` into `public/`, compiling with Babel and copying static files from `app/assets/`.
+* Tests run on Jest, with redux-saga-test-plan for the sagas.
