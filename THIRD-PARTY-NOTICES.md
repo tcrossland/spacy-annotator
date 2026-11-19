@@ -1,6 +1,6 @@
 # Third-party notices
 
-This repository includes files copied from other projects. Their copyright and permission notices follow.
+This repository includes files and text copied from other projects. Their copyright and permission notices follow.
 
 ## displaCy ENT
 
@@ -57,3 +57,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
+
+## Wikipedia
+
+The Spanish sample text in `app/reducers/editor.js` is taken from the Wikipedia article [BBVA](https://es.wikipedia.org/w/index.php?oldid=95972782) (Spanish Wikipedia, revision of 2 January 2017), split into entity spans. Its authors are listed in the article's [history](https://es.wikipedia.org/w/index.php?title=BBVA&action=history). The text is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/), not the MIT License that covers the rest of the repository.
