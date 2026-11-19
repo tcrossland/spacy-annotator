@@ -8,13 +8,12 @@ Select text in the editor and tag it with one of the entity types; tagged text i
 
 ## Getting started
 
-* Install (if you don't have them):
-    * [Node.js](http://nodejs.org): `brew install node` on OS X
-    * [Brunch](http://brunch.io): `npm install -g brunch`
-    * Brunch plugins and app dependencies: `npm install`
+* Install:
+    * [Node.js](http://nodejs.org) (if you don't have it): `brew install node` on OS X
+    * [Brunch](http://brunch.io), its plugins and app dependencies: `npm install`. Don't install Brunch globally: from version 5 the `brunch` package on npm is an unrelated project.
 * Run:
-    * `brunch watch --server` — watches the project with continuous rebuild. This will also launch HTTP server with [pushState](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history).
-    * `brunch build --production` — builds minified project for production
+    * `npm start` — runs `brunch watch --server`, which watches the project with continuous rebuild. This will also launch HTTP server with [pushState](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Manipulating_the_browser_history).
+    * `npm run prod` — runs `brunch build --production`, which builds minified project for production
 * Test:
     * `npm test` — executes test suites
 
