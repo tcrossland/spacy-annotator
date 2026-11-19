@@ -34,11 +34,7 @@ This project is no longer maintained, and the repository is archived.
 
 It is a prototype written between January and May 2017, when spaCy 1.x was current. The idea was a loop in one page: tag entities by hand, send them to a server to train a model, and ask the server to detect entities again. It did not get past the prototype: the entity types, the model name (`es`) and the server address are fixed in the code, the sample text is built in, and the server was never part of this repository.
 
-* January 2017: first commit.
-* May 2017: last change to the app.
-* August 2017: Explosion, the makers of spaCy, [announced Prodigy](https://explosion.ai/blog/prodigy-annotation-tool-active-learning), their annotation tool.
-
-This project came a few months before [Prodigy](https://prodi.gy), but it is a separate and much smaller thing. To annotate data for spaCy today, look at Prodigy or another maintained tool.
+This prototype predates [Prodigy](https://prodi.gy), the annotation tool that Explosion, the makers of spaCy, [announced in August 2017](https://explosion.ai/blog/prodigy-annotation-tool-active-learning). Prodigy is a separate project and does far more. To annotate data for spaCy today, look at Prodigy or another maintained tool.
 
 The entity highlight styles in `app/styles/application.css` come from [displaCy ENT](https://github.com/explosion/displacy-ent), Explosion's entity visualiser, and the font files in `app/assets/fonts/` come from [Bootstrap](https://github.com/twbs/bootstrap). Both are under the MIT License; their notices are in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
